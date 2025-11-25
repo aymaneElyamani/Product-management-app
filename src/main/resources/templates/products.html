@@ -10,7 +10,7 @@
 <body>
  <div class="p-3" layout:fragment="content1">
     <div class="p-3">
-    <a th:href="@{/NewProduct}" class="btn btn-primary">New Product</a>
+    <a th:href="@{/admin/newProduct}" class="btn btn-primary">New Product</a>
     </div>
      <table class="table">
          <thead>
@@ -19,13 +19,13 @@
           </tr>
          </thead>
          <tbody>
-          <tr th:each="p:${listProduits}">
+          <tr th:each="p:${productListe}">
               <td th:text="${p.id}"></td>
               <td th:text="${p.name}"></td>
               <td th:text="${p.price}"></td>
               <td th:text="${p.quantity}"></td>
               <td>
-                  <a onclick="return confirm('Etes vous sure?')" class="btn btn-danger" th:href="@{/deleteProduct(id=${p.id})}">Delete</a>
+                  <a onclick="return confirm('Etes vous sure?')" class="btn btn-danger" th:href="@{/admin/delete(id=${p.id})}">Delete</a>
               </td>
           </tr>
          </tbody>

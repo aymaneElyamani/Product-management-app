@@ -9,19 +9,21 @@
 </head>
 <body>
  <div class="p-3" layout:fragment="content1">
-   <form action="#" th:action="@{/saveProduct}" th:object="${product}" method="post">
-       <div class="form-group">
+   <form action="#" th:action="@{/admin/saveProduct}" th:object="${product}" method="post">
+       <div class="form-group mb-3">
            <label for="name">Name:</label>
-           <input type="text" name="name" th:value="${product.name}" class="form-control" />
-           <span class="text-danger" th:errors="${product.name}"></span>
+           <input type="text" id="name" th:field="*{name}" class="form-control" />
+           <span class="text-danger" th:errors="*{name}"></span>
        </div>
-       <div class="form-group">
+       <div class="form-group mb-3">
            <label for="price">Price:</label>
-           <input type="number" id="price" th:field="*{price}" class="form-control" />
+           <input type="number" step="0.01" id="price" th:field="*{price}" class="form-control" />
+           <span class="text-danger" th:errors="*{price}"></span>
        </div>
-       <div class="form-group">
+       <div class="form-group mb-3">
            <label for="quantity">Quantity:</label>
            <input type="number" id="quantity" th:field="*{quantity}" class="form-control" />
+           <span class="text-danger" th:errors="*{quantity}"></span>
        </div>
        <button type="submit" class="btn btn-primary">Save</button>
    </form>
